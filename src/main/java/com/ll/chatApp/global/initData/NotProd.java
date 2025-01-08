@@ -1,5 +1,6 @@
 package com.ll.chatApp.global.initData;
 
+import com.ll.chatApp.domain.article.article.servise.ArticleService;
 import com.ll.chatApp.domain.chat.chatMessage.service.ChatMessageService;
 import com.ll.chatApp.domain.chat.chatRoom.entity.ChatRoom;
 import com.ll.chatApp.domain.chat.chatRoom.service.ChatRoomService;
@@ -16,7 +17,7 @@ import java.util.stream.IntStream;
 @Profile("!prod")
 public class NotProd {
     @Bean
-    public ApplicationRunner applicationRunner(ChatRoomService chatRoomService, ChatMessageService chatMessageService, MemberService memberService) {
+    public ApplicationRunner applicationRunner(ChatRoomService chatRoomService, ChatMessageService chatMessageService, MemberService memberService, ArticleService articleService) {
         return args -> {
             ChatRoom chatRoom1 = chatRoomService.create("room1");
             ChatRoom chatRoom2 = chatRoomService.create("room2");
