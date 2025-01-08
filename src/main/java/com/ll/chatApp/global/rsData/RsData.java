@@ -3,8 +3,6 @@ package com.ll.chatApp.global.rsData;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.Optional;
-
 import static lombok.AccessLevel.PROTECTED;
 
 @AllArgsConstructor(access = PROTECTED)
