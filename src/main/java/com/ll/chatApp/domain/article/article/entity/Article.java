@@ -16,8 +16,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @ToString(callSuper = true)
 public class Article extends BaseEntity {
+
     private String title;
     private String content;
+
     @ManyToOne
     private Member author;
 }
