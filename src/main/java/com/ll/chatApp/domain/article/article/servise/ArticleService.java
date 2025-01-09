@@ -9,13 +9,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
+
 public class ArticleService {
-    private ArticleRepository articleRepository;
+    private final  ArticleRepository articleRepository;
 
 
     public RsData<Article> write(Long memberId, String title, String content) {
@@ -24,7 +22,6 @@ public class ArticleService {
                 .title(title)
                 .content(content)
                 .build();
-
 
         articleRepository.save(article);
 
