@@ -5,7 +5,6 @@ import com.ll.chatApp.domain.member.member.repository.MemberRepository;
 import com.ll.chatApp.global.rsData.RsData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Service
 @RequiredArgsConstructor
@@ -20,12 +19,11 @@ public class MemberService {
 
         memberRepository.save(member);
 
-        return RsData.of("200", "%s 님 가입을 환영합니다.".formatted(username), member);
+        return RsData.of("200", "%s님 회원가입을 환영합니다!".formatted(username),member);
+
     }
 
+
+
 }
-
-
-
-
 

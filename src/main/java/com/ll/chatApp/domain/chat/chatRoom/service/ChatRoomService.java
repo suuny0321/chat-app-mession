@@ -1,5 +1,6 @@
 package com.ll.chatApp.domain.chat.chatRoom.service;
 
+
 import com.ll.chatApp.domain.chat.chatRoom.entity.ChatRoom;
 import com.ll.chatApp.domain.chat.chatRoom.repository.ChatRoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,8 @@ public class ChatRoomService {
     }
 
     public  List<ChatRoom>  getAll() {
-       return chatRoomRepository.findAll();
+
+        return chatRoomRepository.findAll();
     }
 
     public ChatRoom getChatRoom(Long roomId) {
