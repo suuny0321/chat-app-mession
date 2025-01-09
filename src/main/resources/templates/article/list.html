@@ -1,35 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        .table-1 {
-            border-collapse: collapse;
-        }
-
-        .table-1 th, .table-1 td {
-            border: 1px solid black;
-            padding: 10px;
-        }
-    </style>
-
-</head>
-<body>
 <h1>게시물 목록</h1>
+
+<style>
+    .table-1 {
+        border-collapse: collapse;
+    }
+
+    .table-1 th, .table-1 td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+</style>
 
 <form>
     <div style="display:flex; gap:10px;">
-        <label><input name="kwType" type="checkbox" value="authorUsername"><span>작성자</span></label>
-        <label><input checked name="kwType" type="checkbox" value="title"><span>제목</span></label>
-        <label><input checked name="kwType" type="checkbox" value="body"><span>내용</span></label>
-        <label><input name="kwType" type="checkbox" value="tagContent"><span>태그</span></label>
-        <label><input name="kwType" type="checkbox" value="commentAuthorUsername"><span>댓글 작성자</span></label>
-        <label><input name="kwType" type="checkbox" value="commentBody"><span>댓글 내용</span></label>
+        <label><input name="kwType" th:checked="${kwTypesMap['authorUsername']}" type="checkbox" value="authorUsername"><span>작성자</span></label>
+        <label><input name="kwType" th:checked="${kwTypesMap['title']}" type="checkbox"
+                      value="title"><span>제목</span></label>
+        <label><input name="kwType" th:checked="${kwTypesMap['body']}" type="checkbox"
+                      value="body"><span>내용</span></label>
+        <label><input name="kwType" th:checked="${kwTypesMap['tagContent']}" type="checkbox"
+                      value="tagContent"><span>태그</span></label>
+        <label><input name="kwType" th:checked="${kwTypesMap['commentAuthorUsername']}" type="checkbox"
+                      value="commentAuthorUsername"><span>댓글 작성자</span></label>
+        <label><input name="kwType" th:checked="${kwTypesMap['commentBody']}" type="checkbox" value="commentBody"><span>댓글 내용</span></label>
     </div>
-    <input name="kw" placeholder="검색어" type="search">
+    <input name="kw" placeholder="검색어" th:value="${param.kw}" type="search">
     <input type="submit" value="검색">
 </form>
+
 
 <div>
     <table class="table-1">
@@ -90,6 +88,3 @@
     <h1>itemsPage.last</h1>
     [[${itemsPage.last}]]
 </div>
-
-</body>
-</html>
