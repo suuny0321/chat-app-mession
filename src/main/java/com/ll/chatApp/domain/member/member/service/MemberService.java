@@ -19,7 +19,7 @@ public class MemberService {
 
         memberRepository.save(member);
 
-        return RsData.of("200", "%s님 회원가입을 환영합니다!".formatted(username),member);
+        return  new RsData<>("200", "%s님 회원가입을 환영합니다!".formatted(username),member);
 
     }
 
