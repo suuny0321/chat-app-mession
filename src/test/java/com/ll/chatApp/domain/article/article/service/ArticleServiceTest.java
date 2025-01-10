@@ -21,6 +21,8 @@ public class ArticleServiceTest {
     @Autowired
     private ArticleService articleService;
 
+
+
     @DisplayName("글 쓰기")
     @Test
     void t1() {

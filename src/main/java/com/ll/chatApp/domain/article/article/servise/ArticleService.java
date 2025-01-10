@@ -20,16 +20,14 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
 
     @Transactional
-    public RsData<Article> write(Long memberId, String title, String content) {
+    public Article  write(String title, String content) {
         Article article = Article.builder()
-                .author(Member.builder().id(memberId).build())
+                .author(Member.builder().id(1L).build())
                 .title(title)
                 .content(content)
                 .build();
-        articleRepository.save(article);
 
-        return RsData.of("200", " 글 작성 성공", article);
-
+        return articleRepository.save(article);
     }
 
     public Optional<Article> findById(Long id) {
