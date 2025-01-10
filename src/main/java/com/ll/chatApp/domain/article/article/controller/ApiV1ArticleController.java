@@ -1,5 +1,6 @@
 package com.ll.chatApp.domain.article.article.controller;
 
+import com.ll.chatApp.domain.article.article.dto.ArticleDto;
 import com.ll.chatApp.domain.article.article.entity.Article;
 import com.ll.chatApp.domain.article.article.servise.ArticleService;
 import com.ll.chatApp.global.rsData.RsData;
@@ -15,13 +16,19 @@ public class ApiV1ArticleController {
     private final ArticleService articleService;
 
     @GetMapping
-    public List<Article> getArticles() {
-        return articleService.findAll();
+    public List<ArticleDto> getArticles() {
+        List<Article> articles = articleService.findAll();
+        List<ArticleDto> articeDtoList = articles.stream()
+                .map(ArticleDto::new)
+                .toList();
+
+        return articeDtoList;
     }
 
     @GetMapping("/{id}")
-    public Article getArticle(@PathVariable("id") Long id) {
-        return articleService.findById(id).get();
+    private ArticleDto getArticle(@PathVariable("id") Long id) {
+        Article article =articleService.findById(id).orElseGet(Article::new);
+        return  new ArticleDto(article);
     }
 
     @PostMapping
@@ -31,12 +38,12 @@ public class ApiV1ArticleController {
 
     @PatchMapping("/{id}")
     public void updateArticle(@PathVariable("id") Long id, @RequestBody Article article) {
-        this.articleService.modify(article, article.getTitle(),article.getContent());
+        this.articleService.modify(article, article.getTitle(), article.getContent());
     }
 
     @DeleteMapping("/{id}")
     public void deleteArticle(@PathVariable("id") Long id) {
-        this. articleService.delete(id);
+        this.articleService.delete(id);
 
     }
 }
