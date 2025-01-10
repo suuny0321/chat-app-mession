@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ll.chatApp.global.jpa.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 @Entity
@@ -15,7 +18,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class Member extends BaseEntity {
     @Column(unique = true)
-    String username;
+    private String username;
     @JsonIgnore
-    String password;
+    private String password;
+    @JsonIgnore
+    private String refreshToken;
 }

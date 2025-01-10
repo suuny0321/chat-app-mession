@@ -2,6 +2,7 @@ package com.ll.chatApp.domain.member.member.service;
 
 import com.ll.chatApp.domain.member.member.entity.Member;
 import com.ll.chatApp.domain.member.member.repository.MemberRepository;
+import com.ll.chatApp.global.jwt.JwtProvider;
 import com.ll.chatApp.global.rsData.RsData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,6 +15,7 @@ import java.util.Optional;
 public class MemberService {
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtProvider jwtProvider;
 
     public Member join(String username, String password) {
         Member CheckedSignUpMember = memberRepository.findByUsername(username);
